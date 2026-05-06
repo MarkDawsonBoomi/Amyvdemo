@@ -1,0 +1,195 @@
+<div class="sj-html-content-wrapper boomi-paths-wrapper">
+<div class="sj-html-content boomi-paths-host">
+<style>
+  .boomi-paths-host { max-width: 1400px !important; }
+  .boomi-paths-wrapper { padding: 0 8px !important; }
+  .boomi-paths {
+    --bp-navy: #0a1f44;
+    --bp-navy-soft: #1a2f5a;
+    --bp-text: #1a2238;
+    --bp-muted: #5b6478;
+    --bp-bg: #ffffff;
+    --bp-arrow: #6a7287;
+    --bp-border: #cdd3df;
+    --bp-admin: #1a8cd8;
+    --bp-architect: #ff7a5c;
+    --bp-int-dev: #0a1f44;
+    --bp-api: #4dbfa6;
+    --bp-event: #7ec5e3;
+    --bp-ai: #6b46c1;
+    --bp-b2b: #80b9d8;
+    --bp-datahub: #6dd2bd;
+    --bp-flow: #e66b5b;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    color: var(--bp-text);
+    background: var(--bp-bg);
+    margin: 0 auto;
+    padding: 16px 0 24px;
+    box-sizing: border-box;
+    line-height: 1.25;
+  }
+  .boomi-paths *, .boomi-paths *::before, .boomi-paths *::after { box-sizing: border-box; }
+  .bp-header { margin-bottom: 12px; display: flex; flex-wrap: wrap; align-items: baseline; gap: 16px; }
+  .bp-header h1 { font-size: clamp(18px, 2.4vw, 24px); font-weight: 800; letter-spacing: -0.01em; color: var(--bp-navy); margin: 0; text-transform: uppercase; }
+  .bp-header p { font-size: 11.5px; color: var(--bp-muted); margin: 0; max-width: 720px; font-style: italic; }
+  .bp-legend { display: flex; flex-wrap: wrap; gap: 14px; font-size: 11px; color: var(--bp-muted); margin-left: auto; }
+  .bp-legend-item { display: inline-flex; align-items: center; gap: 6px; }
+  .bp-legend-swatch { display: inline-block; width: 14px; height: 14px; border-radius: 3px; border: 1.5px solid var(--bp-navy); }
+  .bp-legend-swatch.course { background: #fff; }
+  .bp-legend-swatch.cert { background: var(--bp-navy); }
+  .bp-chart { display: grid; grid-template-columns: 150px 110px minmax(0, 1fr); gap: 0; align-items: stretch; }
+  .bp-roles { grid-column: 1 / 2; display: grid; grid-template-rows: repeat(9, 1fr); gap: 4px; }
+  .bp-role { display: flex; align-items: center; padding: 0 10px; color: #fff; font-weight: 700; font-size: 12px; line-height: 1.1; background: var(--role-color, var(--bp-navy)); border-radius: 4px; min-height: 42px; position: relative; }
+  .bp-role::after { content: ""; position: absolute; right: -8px; top: 50%; width: 0; height: 0; border-top: 8px solid transparent; border-bottom: 8px solid transparent; border-left: 8px solid var(--role-color, var(--bp-navy)); transform: translateY(-50%); }
+  .bp-role-icon { width: 20px; height: 20px; flex-shrink: 0; margin-right: 6px; border-radius: 50%; background: rgba(255,255,255,0.25); display: grid; place-items: center; }
+  .bp-role-icon svg { width: 12px; height: 12px; fill: #fff; }
+  .bp-spine { grid-column: 2 / 3; grid-row: 1 / -1; margin: 0 8px; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; background: linear-gradient(180deg, #f3f6fb 0%, #e7eef7 100%); border: 1px solid var(--bp-border); border-radius: 8px; padding: 8px 6px; text-decoration: none; color: var(--bp-navy); transition: transform .12s, box-shadow .15s, background .15s; }
+  .bp-spine:hover { transform: translateY(-1px); box-shadow: 0 6px 16px rgba(10,31,68,.14); background: linear-gradient(180deg, #eaf0f9 0%, #dee7f4 100%); }
+  .bp-spine-icon { width: 36px; height: 36px; background: var(--bp-navy); color: #fff; border-radius: 50%; display: grid; place-items: center; font-size: 18px; margin-bottom: 8px; }
+  .bp-spine-label { font-weight: 700; font-size: 11.5px; line-height: 1.2; }
+  .bp-tracks { grid-column: 3 / 4; display: grid; grid-template-rows: repeat(9, 1fr); gap: 4px; padding: 0 0 0 8px; }
+  .bp-track { display: flex; flex-direction: column; justify-content: center; min-height: 42px; }
+  .bp-flow { display: flex; flex-wrap: nowrap; align-items: center; gap: 4px; overflow-x: auto; scrollbar-width: thin; padding: 2px 0; }
+  .bp-flow::-webkit-scrollbar { height: 5px; }
+  .bp-flow::-webkit-scrollbar-thumb { background: var(--bp-border); border-radius: 3px; }
+  .bp-branches { display: grid; gap: 3px; }
+  .bp-box { display: inline-flex; align-items: center; justify-content: center; text-align: center; padding: 4px 8px; border-radius: 5px; border: 1.5px solid var(--bp-navy); background: #fff; color: var(--bp-navy); font-size: 10.5px; font-weight: 600; line-height: 1.15; text-decoration: none; min-height: 36px; width: 115px; flex-shrink: 0; transition: transform .12s, box-shadow .15s, background-color .15s, color .15s; cursor: pointer; }
+  .bp-box:hover { transform: translateY(-1px); box-shadow: 0 4px 10px rgba(10,31,68,.18); background: #f0f5fc; }
+  .bp-box.is-cert { background: var(--bp-navy); color: #fff; border-color: var(--bp-navy); }
+  .bp-box.is-cert:hover { background: var(--bp-navy-soft); border-color: var(--bp-navy-soft); color: #fff; }
+  .bp-box.is-wide { width: 145px; }
+  .bp-arrow { flex-shrink: 0; width: 12px; height: 2px; background: var(--bp-arrow); position: relative; align-self: center; }
+  .bp-arrow::after { content: ""; position: absolute; right: -1px; top: 50%; width: 0; height: 0; border-top: 4px solid transparent; border-bottom: 4px solid transparent; border-left: 6px solid var(--bp-arrow); transform: translateY(-50%); }
+  .bp-footer { margin-top: 10px; font-size: 10.5px; color: var(--bp-muted); }
+  @media (max-width: 980px) {
+    .bp-chart { display: block; }
+    .bp-roles, .bp-tracks { display: none; }
+    .bp-flow { flex-wrap: wrap; }
+  }
+</style>
+<div class="boomi-paths"><header class="bp-header">
+<h1>Recommended Training Paths<sup style="font-size: 0.4em; vertical-align: super;">*</sup></h1>
+<p>*Note: This chart shows the recommended completion order to get you started. Explore the full training site for all available courses. Click any box to open it.</p>
+<div class="bp-legend" aria-hidden="true"><span class="bp-legend-item">Course</span> <span class="bp-legend-item">Certification</span></div>
+</header>
+<div class="bp-chart">
+<div class="bp-roles">
+<div class="bp-role" style="--role-color: var(--bp-admin);">Platform<br />Administrator</div>
+<div class="bp-role" style="--role-color: var(--bp-architect);">Platform<br />Architect</div>
+<div class="bp-role" style="--role-color: var(--bp-int-dev);">Integration<br />Developer</div>
+<div class="bp-role" style="--role-color: var(--bp-api);">API<br />Management</div>
+<div class="bp-role" style="--role-color: var(--bp-event);">Event<br />Streams</div>
+<div class="bp-role" style="--role-color: var(--bp-ai);">Boomi AI</div>
+<div class="bp-role" style="--role-color: var(--bp-b2b);">B2B / EDI<br />Management</div>
+<div class="bp-role" style="--role-color: var(--bp-datahub);">DataHub</div>
+<div class="bp-role" style="--role-color: var(--bp-flow);">Flow<br />Developer</div>
+</div>
+<a id="bp-link-getting-started" class="bp-spine" aria-label="Getting Started with the Boomi Platform"></a> <span class="bp-spine-icon">🚀</span> <span class="bp-spine-label">Getting Started<br />with the Boomi<br />Platform</span>
+<div class="bp-tracks">
+<div class="bp-track">
+<div class="bp-flow"><a id="bp-link-integration-essentials-admin" class="bp-box"></a>Integration Essentials <a id="bp-link-associate-administrator" class="bp-box"></a>Associate Administrator <a id="bp-link-associate-administrator-cert" class="bp-box is-cert is-wide"></a>Associate Administrator Certification
+<div class="bp-branches">
+<div class="bp-flow" style="overflow: visible; padding: 0;"><a id="bp-link-administrator-2-windows" class="bp-box"></a>Administrator 2 Windows<a id="bp-link-pro-windows-admin-cert" class="bp-box is-cert is-wide"></a>Professional Windows Operational Administration Certification</div>
+<div class="bp-flow" style="overflow: visible; padding: 0;"><a id="bp-link-administrator-2-linux" class="bp-box"></a>Administrator 2 Linux<a id="bp-link-pro-linux-admin-cert" class="bp-box is-cert is-wide"></a>Professional Linux Operational Administrator Certification</div>
+</div>
+</div>
+</div>
+<div class="bp-track">
+<div class="bp-flow"><a id="bp-link-integration-essentials-arch" class="bp-box"></a>Integration Essentials
+<div class="bp-branches">
+<div class="bp-flow" style="overflow: visible; padding: 0;"><a id="bp-link-associate-integration-architect" class="bp-box"></a>Associate Integration Architect<a id="bp-link-associate-integration-architect-cert" class="bp-box is-cert is-wide"></a>Associate Integration Architect Certification</div>
+<div class="bp-flow" style="overflow: visible; padding: 0;"><a id="bp-link-runtime-architect-path" class="bp-box is-wide"></a>Associate Runtime Architect Path (3 courses)<a id="bp-link-associate-runtime-architect-cert" class="bp-box is-cert is-wide"></a>Associate Runtime Architect Certification</div>
+</div>
+</div>
+</div>
+<div class="bp-track">
+<div class="bp-flow"><a id="bp-link-integration-essentials-dev" class="bp-box"></a>Integration Essentials <a id="bp-link-associate-integration-developer" class="bp-box"></a>Associate Integration Developer <a id="bp-link-associate-developer-cert" class="bp-box is-cert"></a>Associate Developer Certification <a id="bp-link-professional-integration-developer" class="bp-box"></a>Professional Integration Developer <a id="bp-link-professional-developer-cert" class="bp-box is-cert"></a>Professional Developer Certification</div>
+</div>
+<div class="bp-track">
+<div class="bp-flow"><a id="bp-link-integration-essentials-api" class="bp-box"></a>Integration Essentials <a id="bp-link-associate-integration-developer-api" class="bp-box"></a>Associate Integration Developer <a id="bp-link-professional-integration-developer-api" class="bp-box"></a>Professional Integration Developer <a id="bp-link-professional-api-design" class="bp-box"></a>Professional API Design <a id="bp-link-professional-api-management" class="bp-box"></a>Professional API Management <a id="bp-link-professional-api-design-cert" class="bp-box is-cert"></a>Professional API Design Certification <a id="bp-link-professional-api-management-cert" class="bp-box is-cert"></a>Professional API Management Certification</div>
+</div>
+<div class="bp-track">
+<div class="bp-flow"><a id="bp-link-integration-essentials-event" class="bp-box"></a>Integration Essentials <a id="bp-link-associate-integration-developer-event" class="bp-box"></a>Associate Integration Developer <a id="bp-link-professional-integration-developer-event" class="bp-box"></a>Professional Integration Developer <a id="bp-link-associate-event-streams" class="bp-box"></a>Associate Event Streams <a id="bp-link-associate-event-streams-cert" class="bp-box is-cert"></a>Associate Event Streams Certification</div>
+</div>
+<div class="bp-track">
+<div class="bp-flow"><a id="bp-link-using-ai-agents-boomi-answers" class="bp-box is-wide"></a>Using AI Agents: Boomi Answers <a id="bp-link-building-ai-agent-agentstudio" class="bp-box is-wide"></a>Building an AI Agent with Agentstudio</div>
+</div>
+<div class="bp-track">
+<div class="bp-flow"><a id="bp-link-edi-essentials" class="bp-box"></a>EDI Essentials <a id="bp-link-integration-essentials-b2b" class="bp-box"></a>Integration Essentials <a id="bp-link-associate-edi-x12" class="bp-box"></a>Associate EDI for X12 <a id="bp-link-associate-edi-x12-cert" class="bp-box is-cert"></a>Associate EDI for X12 Certification</div>
+</div>
+<div class="bp-track">
+<div class="bp-flow"><a id="bp-link-datahub-essentials" class="bp-box"></a>DataHub Essentials <a id="bp-link-associate-datahub" class="bp-box"></a>Associate DataHub <a id="bp-link-associate-datahub-cert" class="bp-box is-cert"></a>Associate DataHub Certification <a id="bp-link-data-stewardship" class="bp-box"></a>Data Stewardship <a id="bp-link-professional-datahub-developer" class="bp-box"></a>Professional DataHub Developer <a id="bp-link-professional-datahub-developer-cert" class="bp-box is-cert is-wide"></a>Professional DataHub Developer Certification</div>
+</div>
+<div class="bp-track">
+<div class="bp-flow"><a id="bp-link-associate-flow-essentials" class="bp-box"></a>Associate Flow Essentials <a id="bp-link-associate-flow-essentials-cert" class="bp-box is-cert is-wide"></a>Associate Flow Essentials Certification <a id="bp-link-professional-flow-developer" class="bp-box"></a>Professional Flow Developer</div>
+</div>
+</div>
+</div>
+<p class="bp-footer">Updated May, 2026.</p>
+</div>
+<script>
+(function(){
+  var URLS={
+    "bp-link-getting-started":"https://train.boomi.com/getting-started-with-the-boomi-platform",
+    "bp-link-integration-essentials-admin":"https://train.boomi.com/integration-essentials",
+    "bp-link-associate-administrator":"https://train.boomi.com/associate-administration",
+    "bp-link-associate-administrator-cert":"https://train.boomi.com/associate-administrator-certification",
+    "bp-link-administrator-2-windows":"https://train.boomi.com/administrator-2-windows",
+    "bp-link-pro-windows-admin-cert":"https://train.boomi.com/professional-windows-operational-administrator-certification",
+    "bp-link-administrator-2-linux":"https://train.boomi.com/administrator-2-linux",
+    "bp-link-pro-linux-admin-cert":"https://train.boomi.com/professional-linux-operational-administrator-certification",
+    "bp-link-integration-essentials-arch":"https://train.boomi.com/integration-essentials",
+    "bp-link-associate-integration-architect":"https://train.boomi.com/associate-integration-architect",
+    "bp-link-associate-integration-architect-cert":"https://train.boomi.com/associate-integration-architect-certification",
+    "bp-link-runtime-architect-path":"https://train.boomi.com/runtime-architecture-foundations",
+    "bp-link-associate-runtime-architect-cert":"https://train.boomi.com/associate-runtime-architect-certification",
+    "bp-link-integration-essentials-dev":"https://train.boomi.com/integration-essentials",
+    "bp-link-associate-integration-developer":"https://train.boomi.com/associate-integration-developer",
+    "bp-link-associate-developer-cert":"https://train.boomi.com/associate-integration-developer-certification",
+    "bp-link-professional-integration-developer":"https://train.boomi.com/professional-integration-developer",
+    "bp-link-professional-developer-cert":"https://train.boomi.com/professional-integration-developer-certification",
+    "bp-link-integration-essentials-api":"https://train.boomi.com/integration-essentials",
+    "bp-link-associate-integration-developer-api":"https://train.boomi.com/associate-integration-developer",
+    "bp-link-professional-integration-developer-api":"https://train.boomi.com/professional-integration-developer",
+    "bp-link-professional-api-design":"https://train.boomi.com/professional-api-design",
+    "bp-link-professional-api-management":"https://train.boomi.com/professional-api-management",
+    "bp-link-professional-api-design-cert":"https://train.boomi.com/professional-api-design-certification",
+    "bp-link-professional-api-management-cert":"https://train.boomi.com/professional-api-management-certification",
+    "bp-link-integration-essentials-event":"https://train.boomi.com/integration-essentials",
+    "bp-link-associate-integration-developer-event":"https://train.boomi.com/associate-integration-developer",
+    "bp-link-professional-integration-developer-event":"https://train.boomi.com/professional-integration-developer",
+    "bp-link-associate-event-streams":"https://train.boomi.com/associate-event-streams",
+    "bp-link-associate-event-streams-cert":"https://train.boomi.com/associate-event-streams-certification",
+    "bp-link-using-ai-agents-boomi-answers":"https://train.boomi.com/using-ai-agents-boomi-answers",
+    "bp-link-building-ai-agent-agentstudio":"https://train.boomi.com/building-an-ai-agent-with-agentstudio",
+    "bp-link-edi-essentials":"https://train.boomi.com/edi-essentials",
+    "bp-link-integration-essentials-b2b":"https://train.boomi.com/integration-essentials",
+    "bp-link-associate-edi-x12":"https://train.boomi.com/associate-edi-for-x12",
+    "bp-link-associate-edi-x12-cert":"https://train.boomi.com/associate-edi-for-x12-certification",
+    "bp-link-datahub-essentials":"https://train.boomi.com/datahub-essentials",
+    "bp-link-associate-datahub":"https://train.boomi.com/associate-datahub",
+    "bp-link-associate-datahub-cert":"https://train.boomi.com/associate-datahub-certification",
+    "bp-link-data-stewardship":"https://train.boomi.com/data-stewardship",
+    "bp-link-professional-datahub-developer":"https://train.boomi.com/professional-datahub-developer",
+    "bp-link-professional-datahub-developer-cert":"https://train.boomi.com/professional-datahub-developer-certification",
+    "bp-link-associate-flow-essentials":"https://train.boomi.com/associate-flow-essentials",
+    "bp-link-associate-flow-essentials-cert":"https://train.boomi.com/associate-flow-essentials-certification",
+    "bp-link-professional-flow-developer":"https://train.boomi.com/professional-flow-developer"
+  };
+  Object.keys(URLS).forEach(function(id){
+    var el=document.getElementById(id); if(!el) return;
+    var url=URLS[id];
+    if(url && url!=="#"){
+      el.setAttribute("href",url);
+      el.setAttribute("target","_blank");
+      el.setAttribute("rel","noopener noreferrer");
+    } else {
+      el.style.opacity=".55"; el.style.cursor="not-allowed";
+      el.addEventListener("click",function(e){e.preventDefault();});
+    }
+  });
+})();
+</script>
+</div>
+</div>
+
